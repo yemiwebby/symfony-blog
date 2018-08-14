@@ -25,20 +25,8 @@ class HomeController extends Controller
     }
 
 
-//    /**
-//     * @Route("/", name="home")
-//     *
-//     * @Route("/entries", name="entries")
-//     */
-//    public function index()
-//    {
-//        return $this->render('home/index.html.twig', [
-//            'blogPosts' => $this->postRepository->findAll(),
-//        ]);
-//    }
-
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="home")
      * @Route("/entries", name="entries")
      */
     public function entriesAction(Request $request)
