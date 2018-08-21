@@ -80,6 +80,7 @@ class AdminController extends Controller
 
         $author = $this->authorRepository->findOneByUsername($this->getUser()->getUserName());
         $blogPost->setAuthor($author);
+        $blogPost->setCreatedAt(new \DateTime());
 
         $form = $this->createForm(EntryType::class, $blogPost);
         $form->handleRequest($request);
