@@ -52,6 +52,11 @@ class User implements UserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * @ORM\Column(name="is_admin", type="boolean", options={"default": 0})
+     */
+    private $isAdmin;
+
 
     public function __construct()
     {
@@ -124,6 +129,24 @@ class User implements UserInterface, \Serializable
     {
         $this->isActive = $isActive;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getisAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * @param mixed $isAdmin
+     */
+    public function setIsAdmin($isAdmin): void
+    {
+        $this->isAdmin = $isAdmin;
+    }
+
+
 
     /**
      * Returns the salt that was originally used to encode the password.

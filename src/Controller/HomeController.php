@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Parsedown;
 
 class HomeController extends Controller
 {
@@ -60,8 +61,15 @@ class HomeController extends Controller
             return $this->redirectToRoute('entries');
         }
 
+
+        $body =  $blogPost->getBody();
+        $parsedown = new Parsedown();
+        $html = $parsedown->text($body);
+
+
         return $this->render('home/entry.html.twig', array(
-            'blogPost' => $blogPost
+            'blogPost' => $blogPost,
+            'body' => $html
         ));
     }
 
